@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Proyecto1TJ.Models.Factura>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageEmployee.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.numeroSerie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numeroFactura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nitFactura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreFactura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.direccionFacutra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaFactura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.totalFactura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clientes.nombrePersona)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estadoFacturas.nombreEstado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuarios.nombrePersona)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.numeroSerie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numeroFactura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nitFactura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreFactura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.direccionFacutra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaFactura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.totalFactura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clientes.nombrePersona)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estadoFacturas.nombreEstado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuarios.nombrePersona)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

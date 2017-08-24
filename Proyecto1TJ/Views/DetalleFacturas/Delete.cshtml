@@ -1,0 +1,49 @@
+﻿@model Proyecto1TJ.Models.DetalleFactura
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPageEmployee.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DetalleFactura</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Factura.numeroSerie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Factura.numeroSerie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Inventario.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inventario.id)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

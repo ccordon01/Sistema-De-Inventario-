@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/ContentEmp/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("CECH WCS", "Employee", "Account", new { area = "" }, new { @class = "navbar-brand", @style = "font-size: 162%; word-spacing: 12px; border-right: thick solid #666060;font-weight: bold;" })
+        </div>
+    <div class="container">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                @*<li><a href="#">Link</a></li>*@
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="font-size: 127%;">Factura <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("Crear Factura", "Create", "Facturas",null, new { @style = "font-size: 120%;" })</li>
+                        <li>@Html.ActionLink("Facturas Registradas", "Index", "Facturas", null, new { @style = "font-size: 120%;" })</li>
+                        @*<li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>*@
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="font-size: 127%;">Clientes <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink("Crear Cliente", "Create", "Clientes", null, new { @style = "font-size: 120%;" })</li>
+                        <li>@Html.ActionLink("Clientes Registrados", "Index", "Clientes", null, new { @style = "font-size: 120%;" })</li>
+                        @*<li class="divider"></li>
+                <li><a href="#">Separated link</a></li>*@
+                    </ul>
+                </li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+            @*<ul class="nav navbar-nav navbar-right">
+            </ul>*@
+        </div>
+    </div>
+</nav>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - CECH</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿@model Proyecto1TJ.Models.Productos
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Productos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcionProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcionProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.costoProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.costoProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.existenciaTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.existenciaTotal)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

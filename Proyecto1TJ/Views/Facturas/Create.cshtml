@@ -1,0 +1,128 @@
+﻿@model Proyecto1TJ.Models.FacturaView
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutPageEmployee.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Factura</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-sm-1">
+                </div>
+    <div class="col-sm-4">
+        @Html.LabelFor(model => model.factEncab.numeroSerie, htmlAttributes: new { @class = "control-label" })
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.factEncab.numeroSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.factEncab.numeroSerie, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.LabelFor(model => model.factEncab.nitFactura, htmlAttributes: new { @class = "control-label" })
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.factEncab.nitFactura, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.factEncab.nitFactura, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.LabelFor(model => model.factEncab.direccionFacutra, htmlAttributes: new { @class = "control-label" })
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.factEncab.direccionFacutra, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.factEncab.direccionFacutra, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" /> |
+@Html.ActionLink("Agregar Producto", "AddProduct", new { }, new { @class = "btn btn-primary" }) | @Html.ActionLink("Cancelar", "CancelarFact", new { }, new { @class = "btn btn-warning" })
+                
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        @Html.LabelFor(model => model.factEncab.numeroFactura, htmlAttributes: new { @class = "control-label" })
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.factEncab.numeroFactura, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.factEncab.numeroFactura, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.LabelFor(model => model.factEncab.fechaFactura, htmlAttributes: new { @class = "control-label" })
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.factEncab.fechaFactura, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.fechaI, @disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.factEncab.fechaFactura, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @Html.LabelFor(model => model.factEncab.totalFactura, htmlAttributes: new { @class = "control-label" })
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.factEncab.totalFactura, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.totalI, @disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.factEncab.totalFactura, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Titulos.Inventario.id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Titulos.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Titulos.Descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Titulos.precio)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.factList)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.codigoInventario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.precio)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

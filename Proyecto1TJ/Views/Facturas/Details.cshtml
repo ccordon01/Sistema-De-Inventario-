@@ -1,0 +1,99 @@
+﻿@model Proyecto1TJ.Models.Factura
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPageEmployee.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Factura</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.numeroSerie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeroSerie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numeroFactura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeroFactura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nitFactura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nitFactura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreFactura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreFactura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccionFacutra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccionFacutra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaFactura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaFactura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.totalFactura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.totalFactura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clientes.nombrePersona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clientes.nombrePersona)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estadoFacturas.nombreEstado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estadoFacturas.nombreEstado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuarios.nombrePersona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuarios.nombrePersona)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

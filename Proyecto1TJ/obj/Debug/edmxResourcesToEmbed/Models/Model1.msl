@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProyectoFinalTJModelStoreContainer" CdmEntityContainer="ProyectoFinalTJEntities1">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.Clientes">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombrePersona" ColumnName="nombrePersona" />
+          <ScalarProperty Name="apellidoPersona" ColumnName="apellidoPersona" />
+          <ScalarProperty Name="nit" ColumnName="nit" />
+          <ScalarProperty Name="dpi" ColumnName="dpi" />
+          <ScalarProperty Name="edad" ColumnName="edad" />
+          <ScalarProperty Name="numeroTelefono" ColumnName="numeroTelefono" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DataBodega">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.DataBodega">
+        <MappingFragment StoreEntitySet="DataBodega">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombreBodega" ColumnName="nombreBodega" />
+          <ScalarProperty Name="direccionBodega" ColumnName="direccionBodega" />
+          <ScalarProperty Name="adminBodega" ColumnName="adminBodega" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleFactura">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.DetalleFactura">
+        <MappingFragment StoreEntitySet="DetalleFactura">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigoFactura" ColumnName="codigoFactura" />
+          <ScalarProperty Name="codigoInventario" ColumnName="codigoInventario" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleInOut">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.DetalleInOut">
+        <MappingFragment StoreEntitySet="DetalleInOut">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="coidgoInOut" ColumnName="coidgoInOut" />
+          <ScalarProperty Name="codigoProducto" ColumnName="codigoProducto" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleInOutP">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.DetalleInOutP">
+        <MappingFragment StoreEntitySet="DetalleInOutP">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="coidgoInOut" ColumnName="coidgoInOut" />
+          <ScalarProperty Name="codigoProducto" ColumnName="codigoProducto" />
+          <ScalarProperty Name="cantidadP" ColumnName="cantidadP" />
+          <ScalarProperty Name="inoutType" ColumnName="inoutType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeBodega">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.EmployeeBodega">
+        <MappingFragment StoreEntitySet="EmployeeBodega">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="idBodega" ColumnName="idBodega" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estadoFacturas">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.estadoFacturas">
+        <MappingFragment StoreEntitySet="estadoFacturas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombreEstado" ColumnName="nombreEstado" />
+          <ScalarProperty Name="descripcionEstado" ColumnName="descripcionEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estadoProductos">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.estadoProductos">
+        <MappingFragment StoreEntitySet="estadoProductos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombreEstado" ColumnName="nombreEstado" />
+          <ScalarProperty Name="descripcionEstado" ColumnName="descripcionEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Factura">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.Factura">
+        <MappingFragment StoreEntitySet="Factura">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numeroSerie" ColumnName="numeroSerie" />
+          <ScalarProperty Name="numeroFactura" ColumnName="numeroFactura" />
+          <ScalarProperty Name="nitFactura" ColumnName="nitFactura" />
+          <ScalarProperty Name="nombreFactura" ColumnName="nombreFactura" />
+          <ScalarProperty Name="direccionFacutra" ColumnName="direccionFacutra" />
+          <ScalarProperty Name="fechaFactura" ColumnName="fechaFactura" />
+          <ScalarProperty Name="estadoFactura" ColumnName="estadoFactura" />
+          <ScalarProperty Name="totalFactura" ColumnName="totalFactura" />
+          <ScalarProperty Name="cliente" ColumnName="cliente" />
+          <ScalarProperty Name="vendedor" ColumnName="vendedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InOut">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.InOut">
+        <MappingFragment StoreEntitySet="InOut">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fechaInOut" ColumnName="fechaInOut" />
+          <ScalarProperty Name="tipoInOut" ColumnName="tipoInOut" />
+          <ScalarProperty Name="cantidadInOut" ColumnName="cantidadInOut" />
+          <ScalarProperty Name="ubicacionInOut" ColumnName="ubicacionInOut" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventario">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.Inventario">
+        <MappingFragment StoreEntitySet="Inventario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigoProducto" ColumnName="codigoProducto" />
+          <ScalarProperty Name="estadoProducto" ColumnName="estadoProducto" />
+          <ScalarProperty Name="ubicacionProducto" ColumnName="ubicacionProducto" />
+          <ScalarProperty Name="precioVenta" ColumnName="precioVenta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.Productos">
+        <MappingFragment StoreEntitySet="Productos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombreProducto" ColumnName="nombreProducto" />
+          <ScalarProperty Name="descripcionProducto" ColumnName="descripcionProducto" />
+          <ScalarProperty Name="costoProducto" ColumnName="costoProducto" />
+          <ScalarProperty Name="existenciaTotal" ColumnName="existenciaTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoInOut">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.tipoInOut">
+        <MappingFragment StoreEntitySet="tipoInOut">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombretipoInOut" ColumnName="nombretipoInOut" />
+          <ScalarProperty Name="descripciontipoInOut" ColumnName="descripciontipoInOut" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="ProyectoFinalTJModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombrePersona" ColumnName="nombrePersona" />
+          <ScalarProperty Name="apellidoPersona" ColumnName="apellidoPersona" />
+          <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+          <ScalarProperty Name="contraUsuario" ColumnName="contraUsuario" />
+          <ScalarProperty Name="edad" ColumnName="edad" />
+          <ScalarProperty Name="numeroTelefono" ColumnName="numeroTelefono" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
+          <ScalarProperty Name="superior" ColumnName="superior" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="idAspNetUsers" ColumnName="idAspNetUsers" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="ProyectoFinalTJModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionName="ProyectoFinalTJModel.Store.fnTableColumnInfo" FunctionImportName="fnTableColumnInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoFinalTJModel.fnTableColumnInfo_Result">
+          <ScalarProperty Name="sColumnName" ColumnName="sColumnName" />
+          <ScalarProperty Name="nColumnID" ColumnName="nColumnID" />
+          <ScalarProperty Name="bPrimaryKeyColumn" ColumnName="bPrimaryKeyColumn" />
+          <ScalarProperty Name="nAlternateType" ColumnName="nAlternateType" />
+          <ScalarProperty Name="nColumnLength" ColumnName="nColumnLength" />
+          <ScalarProperty Name="nColumnPrecision" ColumnName="nColumnPrecision" />
+          <ScalarProperty Name="nColumnScale" ColumnName="nColumnScale" />
+          <ScalarProperty Name="IsNullable" ColumnName="IsNullable" />
+          <ScalarProperty Name="IsIdentity" ColumnName="IsIdentity" />
+          <ScalarProperty Name="sTypeName" ColumnName="sTypeName" />
+          <ScalarProperty Name="sDefaultValue" ColumnName="sDefaultValue" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="ProyectoFinalTJModel.Store.GetEmpList" FunctionImportName="GetEmpList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoFinalTJModel.GetEmpList_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombrePersona" ColumnName="nombrePersona" />
+          <ScalarProperty Name="apellidoPersona" ColumnName="apellidoPersona" />
+          <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+          <ScalarProperty Name="contraUsuario" ColumnName="contraUsuario" />
+          <ScalarProperty Name="edad" ColumnName="edad" />
+          <ScalarProperty Name="numeroTelefono" ColumnName="numeroTelefono" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
+          <ScalarProperty Name="superior" ColumnName="superior" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="idAspNetUsers" ColumnName="idAspNetUsers" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="ProyectoFinalTJModel.Store.GetIdRol" FunctionImportName="GetIdRol">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoFinalTJModel.GetIdRol_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="ProyectoFinalTJModel.Store.GetIdUser" FunctionImportName="GetIdUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoFinalTJModel.GetIdUser_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="ProyectoFinalTJModel.Store.GetRol" FunctionImportName="GetRol">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoFinalTJModel.GetRol_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="ProyectoFinalTJModel.Store.ManagerBodegaUser" FunctionImportName="ManagerBodegaUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoFinalTJModel.ManagerBodegaUser_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombrePersona" ColumnName="nombrePersona" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="addRoleUser" FunctionName="ProyectoFinalTJModel.Store.addRoleUser" />
+    <FunctionImportMapping FunctionImportName="Delete_Cliente" FunctionName="ProyectoFinalTJModel.Store.Delete_Cliente" />
+    <FunctionImportMapping FunctionImportName="Insert_Cliente" FunctionName="ProyectoFinalTJModel.Store.Insert_Cliente" />
+    <FunctionImportMapping FunctionImportName="InsertarBodega" FunctionName="ProyectoFinalTJModel.Store.InsertarBodega" />
+    <FunctionImportMapping FunctionImportName="InsertarClientes" FunctionName="ProyectoFinalTJModel.Store.InsertarClientes" />
+    <FunctionImportMapping FunctionImportName="InsertarDetalleFactura" FunctionName="ProyectoFinalTJModel.Store.InsertarDetalleFactura" />
+    <FunctionImportMapping FunctionImportName="InsertarDetalleInOut" FunctionName="ProyectoFinalTJModel.Store.InsertarDetalleInOut" />
+    <FunctionImportMapping FunctionImportName="InsertarDetalleInOutP" FunctionName="ProyectoFinalTJModel.Store.InsertarDetalleInOutP" />
+    <FunctionImportMapping FunctionImportName="InsertarestadoFacturas" FunctionName="ProyectoFinalTJModel.Store.InsertarestadoFacturas" />
+    <FunctionImportMapping FunctionImportName="InsertarFactura" FunctionName="ProyectoFinalTJModel.Store.InsertarFactura" />
+    <FunctionImportMapping FunctionImportName="InsertarInOut" FunctionName="ProyectoFinalTJModel.Store.InsertarInOut" />
+    <FunctionImportMapping FunctionImportName="InsertarInventario" FunctionName="ProyectoFinalTJModel.Store.InsertarInventario" />
+    <FunctionImportMapping FunctionImportName="InsertarProductos" FunctionName="ProyectoFinalTJModel.Store.InsertarProductos" />
+    <FunctionImportMapping FunctionImportName="InsertarRoles" FunctionName="ProyectoFinalTJModel.Store.InsertarRoles" />
+    <FunctionImportMapping FunctionImportName="InsertarUsuarios" FunctionName="ProyectoFinalTJModel.Store.InsertarUsuarios" />
+    <FunctionImportMapping FunctionImportName="inveVendido" FunctionName="ProyectoFinalTJModel.Store.inveVendido" />
+    <FunctionImportMapping FunctionImportName="pr__SYS_MakeDeleteRecordProc" FunctionName="ProyectoFinalTJModel.Store.pr__SYS_MakeDeleteRecordProc" />
+    <FunctionImportMapping FunctionImportName="pr__SYS_MakeInsertRecordProc" FunctionName="ProyectoFinalTJModel.Store.pr__SYS_MakeInsertRecordProc" />
+    <FunctionImportMapping FunctionImportName="pr__SYS_MakeSelectRecordProc" FunctionName="ProyectoFinalTJModel.Store.pr__SYS_MakeSelectRecordProc" />
+    <FunctionImportMapping FunctionImportName="pr__SYS_MakeUpdateRecordProc" FunctionName="ProyectoFinalTJModel.Store.pr__SYS_MakeUpdateRecordProc" />
+    <FunctionImportMapping FunctionImportName="prApp_DetalleInOutP_Delete" FunctionName="ProyectoFinalTJModel.Store.prApp_DetalleInOutP_Delete" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ProyectoFinalTJModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="ProyectoFinalTJModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="ProyectoFinalTJModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="ProyectoFinalTJModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoFinalTJModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="ProyectoFinalTJModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProyectoFinalTJModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ProyectoFinalTJModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ProyectoFinalTJModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

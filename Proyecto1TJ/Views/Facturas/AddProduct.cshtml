@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Proyecto1TJ.Models.Inventario>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageEmployee.cshtml";
+}
+
+<h2>Comprar Producto</h2>
+
+<p>
+    @Html.ActionLink("Regresar", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Productos.nombreProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Productos.descripcionProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precioVenta)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Productos.nombreProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Productos.descripcionProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precioVenta)
+            </td>
+            <td>
+                @Html.ActionLink("Comprar", "ComprarProduct", new { id = item.id }, new { @class = "btn btn-success" }) 
+            </td>
+        </tr>
+    }
+
+</table>

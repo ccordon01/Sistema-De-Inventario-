@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="371d559ab0d14ccfb6f6c12b0b916f67" Name="Diagram1">
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.AspNetUsers" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.Clientes" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.DataBodega" Width="1.5" PointX="10.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.DetalleFactura" Width="1.5" PointX="15" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.DetalleInOut" Width="1.5" PointX="15" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.DetalleInOutP" Width="1.5" PointX="18" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.EmployeeBodega" Width="1.5" PointX="12.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.estadoFacturas" Width="1.5" PointX="8.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.estadoProductos" Width="1.5" PointX="10.5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.Factura" Width="1.5" PointX="10.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.InOut" Width="1.5" PointX="15.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.Inventario" Width="1.5" PointX="12.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.Productos" Width="1.5" PointX="10.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.tipoInOut" Width="1.5" PointX="13.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoFinalTJModel.Usuarios" Width="1.5" PointX="8.25" PointY="10.125" IsExpanded="true" />
+        <AssociationConnector Association="ProyectoFinalTJModel.FK_Usuarios_AspNetRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.FK_Usuarios_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.fk_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.fk_idb" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.fk_ubicacionProducto" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.fk_ubicacionProductoInOut" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.fk_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.fk_codigoFactura" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.fk_codigoInventarioDetalleFactura" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.fk_codigoProductoInOut" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.fk_coidgoInOut" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.fk_codigoProductoInOutP" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.fk_coidgoInOutP" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.fk_idu" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.fk_estadoFactura" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.fk_estadoProducto" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.fk_vendedor" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.fk_tipoInOut" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.fk_codigoProducto" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.fk_superior" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoFinalTJModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

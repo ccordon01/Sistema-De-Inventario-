@@ -1,0 +1,43 @@
+﻿@model Proyecto1TJ.Models.DetalleFactura
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPageEmployee.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DetalleFactura</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Factura.numeroSerie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Factura.numeroSerie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Inventario.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inventario.id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

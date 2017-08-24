@@ -1,0 +1,857 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProyectoFinalTJModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="fnTableColumnInfo_Result">
+    <Property Name="sColumnName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="nColumnID" Type="Int16" />
+    <Property Name="bPrimaryKeyColumn" Type="Boolean" />
+    <Property Name="nAlternateType" Type="Int32" Nullable="false" />
+    <Property Name="nColumnLength" Type="Int16" Nullable="false" />
+    <Property Name="nColumnPrecision" Type="Int16" />
+    <Property Name="nColumnScale" Type="Int32" />
+    <Property Name="IsNullable" Type="Int32" />
+    <Property Name="IsIdentity" Type="Int32" />
+    <Property Name="sTypeName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sDefaultValue" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+  </ComplexType>
+  <ComplexType Name="GetEmpList_Result">
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="nombrePersona" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="apellidoPersona" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nombreUsuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="contraUsuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="edad" Type="Int32" />
+    <Property Name="numeroTelefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="rol" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="superior" Type="Int32" />
+    <Property Name="sexo" Type="Boolean" />
+    <Property Name="idAspNetUsers" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+  </ComplexType>
+  <ComplexType Name="GetIdRol_Result">
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetIdUser_Result">
+    <Property Name="id" Type="Int32" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetRol_Result">
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+  </ComplexType>
+  <ComplexType Name="ManagerBodegaUser_Result">
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="nombrePersona" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </ComplexType>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_AspNetRoles" FromRole="AspNetRoles" ToRole="Usuarios" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_AspNetUsers" FromRole="AspNetUsers" ToRole="Usuarios" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombrePersona" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="apellidoPersona" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nit" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="dpi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="edad" Type="Int32" />
+    <Property Name="numeroTelefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="sexo" Type="Boolean" />
+    <NavigationProperty Name="Factura" Relationship="Self.fk_cliente" FromRole="Clientes" ToRole="Factura" />
+  </EntityType>
+  <EntityType Name="DataBodega">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreBodega" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="direccionBodega" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="adminBodega" Type="Int32" />
+    <NavigationProperty Name="EmployeeBodega" Relationship="Self.fk_idb" FromRole="DataBodega" ToRole="EmployeeBodega" />
+    <NavigationProperty Name="Inventario" Relationship="Self.fk_ubicacionProducto" FromRole="DataBodega" ToRole="Inventario" />
+    <NavigationProperty Name="InOut" Relationship="Self.fk_ubicacionProductoInOut" FromRole="DataBodega" ToRole="InOut" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.fk_usuario" FromRole="DataBodega" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="DetalleFactura">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigoFactura" Type="Int32" />
+    <Property Name="codigoInventario" Type="Int32" />
+    <Property Name="precio" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Factura" Relationship="Self.fk_codigoFactura" FromRole="DetalleFactura" ToRole="Factura" />
+    <NavigationProperty Name="Inventario" Relationship="Self.fk_codigoInventarioDetalleFactura" FromRole="DetalleFactura" ToRole="Inventario" />
+  </EntityType>
+  <EntityType Name="DetalleInOut">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="coidgoInOut" Type="Int32" />
+    <Property Name="codigoProducto" Type="Int32" />
+    <Property Name="cantidad" Type="Int32" />
+    <NavigationProperty Name="Inventario" Relationship="Self.fk_codigoProductoInOut" FromRole="DetalleInOut" ToRole="Inventario" />
+    <NavigationProperty Name="DetalleInOutP" Relationship="Self.fk_coidgoInOut" FromRole="DetalleInOut" ToRole="DetalleInOutP" />
+  </EntityType>
+  <EntityType Name="DetalleInOutP">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="coidgoInOut" Type="Int32" />
+    <Property Name="codigoProducto" Type="Int32" />
+    <Property Name="cantidadP" Type="Int32" />
+    <Property Name="inoutType" Type="Boolean" />
+    <NavigationProperty Name="DetalleInOut" Relationship="Self.fk_coidgoInOut" FromRole="DetalleInOutP" ToRole="DetalleInOut" />
+    <NavigationProperty Name="Productos" Relationship="Self.fk_codigoProductoInOutP" FromRole="DetalleInOutP" ToRole="Productos" />
+    <NavigationProperty Name="InOut" Relationship="Self.fk_coidgoInOutP" FromRole="DetalleInOutP" ToRole="InOut" />
+  </EntityType>
+  <EntityType Name="EmployeeBodega">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idUsuario" Type="Int32" />
+    <Property Name="idBodega" Type="Int32" />
+    <NavigationProperty Name="DataBodega" Relationship="Self.fk_idb" FromRole="EmployeeBodega" ToRole="DataBodega" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.fk_idu" FromRole="EmployeeBodega" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="estadoFacturas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreEstado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="descripcionEstado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Factura" Relationship="Self.fk_estadoFactura" FromRole="estadoFacturas" ToRole="Factura" />
+  </EntityType>
+  <EntityType Name="estadoProductos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreEstado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="descripcionEstado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Inventario" Relationship="Self.fk_estadoProducto" FromRole="estadoProductos" ToRole="Inventario" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="numeroSerie" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="numeroFactura" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nitFactura" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nombreFactura" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="direccionFacutra" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="fechaFactura" Type="DateTime" Precision="0" />
+    <Property Name="estadoFactura" Type="Int32" />
+    <Property Name="totalFactura" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cliente" Type="Int32" />
+    <Property Name="vendedor" Type="Int32" />
+    <NavigationProperty Name="Clientes" Relationship="Self.fk_cliente" FromRole="Factura" ToRole="Clientes" />
+    <NavigationProperty Name="DetalleFactura" Relationship="Self.fk_codigoFactura" FromRole="Factura" ToRole="DetalleFactura" />
+    <NavigationProperty Name="estadoFacturas" Relationship="Self.fk_estadoFactura" FromRole="Factura" ToRole="estadoFacturas" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.fk_vendedor" FromRole="Factura" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="InOut">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="fechaInOut" Type="DateTime" Precision="0" />
+    <Property Name="tipoInOut" Type="Int32" />
+    <Property Name="cantidadInOut" Type="Int32" />
+    <Property Name="ubicacionInOut" Type="Int32" />
+    <NavigationProperty Name="DataBodega" Relationship="Self.fk_ubicacionProductoInOut" FromRole="InOut" ToRole="DataBodega" />
+    <NavigationProperty Name="DetalleInOutP" Relationship="Self.fk_coidgoInOutP" FromRole="InOut" ToRole="DetalleInOutP" />
+    <NavigationProperty Name="tipoInOut1" Relationship="Self.fk_tipoInOut" FromRole="InOut" ToRole="tipoInOut" />
+  </EntityType>
+  <EntityType Name="Inventario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigoProducto" Type="Int32" />
+    <Property Name="estadoProducto" Type="Int32" />
+    <Property Name="ubicacionProducto" Type="Int32" />
+    <Property Name="precioVenta" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="DataBodega" Relationship="Self.fk_ubicacionProducto" FromRole="Inventario" ToRole="DataBodega" />
+    <NavigationProperty Name="DetalleFactura" Relationship="Self.fk_codigoInventarioDetalleFactura" FromRole="Inventario" ToRole="DetalleFactura" />
+    <NavigationProperty Name="DetalleInOut" Relationship="Self.fk_codigoProductoInOut" FromRole="Inventario" ToRole="DetalleInOut" />
+    <NavigationProperty Name="estadoProductos" Relationship="Self.fk_estadoProducto" FromRole="Inventario" ToRole="estadoProductos" />
+    <NavigationProperty Name="Productos" Relationship="Self.fk_codigoProducto" FromRole="Inventario" ToRole="Productos" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreProducto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="descripcionProducto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="costoProducto" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="existenciaTotal" Type="Int32" />
+    <NavigationProperty Name="DetalleInOutP" Relationship="Self.fk_codigoProductoInOutP" FromRole="Productos" ToRole="DetalleInOutP" />
+    <NavigationProperty Name="Inventario" Relationship="Self.fk_codigoProducto" FromRole="Productos" ToRole="Inventario" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tipoInOut">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombretipoInOut" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="descripciontipoInOut" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="InOut" Relationship="Self.fk_tipoInOut" FromRole="tipoInOut" ToRole="InOut" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombrePersona" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="apellidoPersona" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nombreUsuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="contraUsuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="edad" Type="Int32" />
+    <Property Name="numeroTelefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="rol" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="superior" Type="Int32" />
+    <Property Name="sexo" Type="Boolean" />
+    <Property Name="idAspNetUsers" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.FK_Usuarios_AspNetRoles" FromRole="Usuarios" ToRole="AspNetRoles" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_Usuarios_AspNetUsers" FromRole="Usuarios" ToRole="AspNetUsers" />
+    <NavigationProperty Name="DataBodega" Relationship="Self.fk_usuario" FromRole="Usuarios" ToRole="DataBodega" />
+    <NavigationProperty Name="EmployeeBodega" Relationship="Self.fk_idu" FromRole="Usuarios" ToRole="EmployeeBodega" />
+    <NavigationProperty Name="Factura" Relationship="Self.fk_vendedor" FromRole="Usuarios" ToRole="Factura" />
+    <NavigationProperty Name="Usuarios1" Relationship="Self.fk_superior" FromRole="Usuarios" ToRole="Usuarios1" />
+    <NavigationProperty Name="Usuarios2" Relationship="Self.fk_superior" FromRole="Usuarios1" ToRole="Usuarios" />
+  </EntityType>
+  <Association Name="FK_Usuarios_AspNetRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="0..1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="idAspNetUsers" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cliente">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_idb">
+    <End Role="DataBodega" Type="Self.DataBodega" Multiplicity="0..1" />
+    <End Role="EmployeeBodega" Type="Self.EmployeeBodega" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DataBodega">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EmployeeBodega">
+        <PropertyRef Name="idBodega" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ubicacionProducto">
+    <End Role="DataBodega" Type="Self.DataBodega" Multiplicity="0..1" />
+    <End Role="Inventario" Type="Self.Inventario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DataBodega">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Inventario">
+        <PropertyRef Name="ubicacionProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ubicacionProductoInOut">
+    <End Role="DataBodega" Type="Self.DataBodega" Multiplicity="0..1" />
+    <End Role="InOut" Type="Self.InOut" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DataBodega">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="InOut">
+        <PropertyRef Name="ubicacionInOut" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_usuario">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="DataBodega" Type="Self.DataBodega" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DataBodega">
+        <PropertyRef Name="adminBodega" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_codigoFactura">
+    <End Role="Factura" Type="Self.Factura" Multiplicity="0..1" />
+    <End Role="DetalleFactura" Type="Self.DetalleFactura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DetalleFactura">
+        <PropertyRef Name="codigoFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_codigoInventarioDetalleFactura">
+    <End Role="Inventario" Type="Self.Inventario" Multiplicity="0..1" />
+    <End Role="DetalleFactura" Type="Self.DetalleFactura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inventario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DetalleFactura">
+        <PropertyRef Name="codigoInventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_codigoProductoInOut">
+    <End Role="Inventario" Type="Self.Inventario" Multiplicity="0..1" />
+    <End Role="DetalleInOut" Type="Self.DetalleInOut" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inventario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DetalleInOut">
+        <PropertyRef Name="codigoProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_coidgoInOut">
+    <End Role="DetalleInOutP" Type="Self.DetalleInOutP" Multiplicity="0..1" />
+    <End Role="DetalleInOut" Type="Self.DetalleInOut" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DetalleInOutP">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DetalleInOut">
+        <PropertyRef Name="coidgoInOut" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_codigoProductoInOutP">
+    <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+    <End Role="DetalleInOutP" Type="Self.DetalleInOutP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DetalleInOutP">
+        <PropertyRef Name="codigoProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_coidgoInOutP">
+    <End Role="InOut" Type="Self.InOut" Multiplicity="0..1" />
+    <End Role="DetalleInOutP" Type="Self.DetalleInOutP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InOut">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DetalleInOutP">
+        <PropertyRef Name="coidgoInOut" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_idu">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="EmployeeBodega" Type="Self.EmployeeBodega" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EmployeeBodega">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_estadoFactura">
+    <End Role="estadoFacturas" Type="Self.estadoFacturas" Multiplicity="0..1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estadoFacturas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="estadoFactura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_estadoProducto">
+    <End Role="estadoProductos" Type="Self.estadoProductos" Multiplicity="0..1" />
+    <End Role="Inventario" Type="Self.Inventario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estadoProductos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Inventario">
+        <PropertyRef Name="estadoProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_vendedor">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="vendedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tipoInOut">
+    <End Role="tipoInOut" Type="Self.tipoInOut" Multiplicity="0..1" />
+    <End Role="InOut" Type="Self.InOut" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipoInOut">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="InOut">
+        <PropertyRef Name="tipoInOut" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_codigoProducto">
+    <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+    <End Role="Inventario" Type="Self.Inventario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Inventario">
+        <PropertyRef Name="codigoProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_superior">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Usuarios1" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuarios1">
+        <PropertyRef Name="superior" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="ProyectoFinalTJEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+    <EntitySet Name="DataBodega" EntityType="Self.DataBodega" />
+    <EntitySet Name="DetalleFactura" EntityType="Self.DetalleFactura" />
+    <EntitySet Name="DetalleInOut" EntityType="Self.DetalleInOut" />
+    <EntitySet Name="DetalleInOutP" EntityType="Self.DetalleInOutP" />
+    <EntitySet Name="EmployeeBodega" EntityType="Self.EmployeeBodega" />
+    <EntitySet Name="estadoFacturas" EntityType="Self.estadoFacturas" />
+    <EntitySet Name="estadoProductos" EntityType="Self.estadoProductos" />
+    <EntitySet Name="Factura" EntityType="Self.Factura" />
+    <EntitySet Name="InOut" EntityType="Self.InOut" />
+    <EntitySet Name="Inventario" EntityType="Self.Inventario" />
+    <EntitySet Name="Productos" EntityType="Self.Productos" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="tipoInOut" EntityType="Self.tipoInOut" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <AssociationSet Name="FK_Usuarios_AspNetRoles" Association="Self.FK_Usuarios_AspNetRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_AspNetUsers" Association="Self.FK_Usuarios_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cliente" Association="Self.fk_cliente">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="fk_idb" Association="Self.fk_idb">
+      <End Role="DataBodega" EntitySet="DataBodega" />
+      <End Role="EmployeeBodega" EntitySet="EmployeeBodega" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ubicacionProducto" Association="Self.fk_ubicacionProducto">
+      <End Role="DataBodega" EntitySet="DataBodega" />
+      <End Role="Inventario" EntitySet="Inventario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ubicacionProductoInOut" Association="Self.fk_ubicacionProductoInOut">
+      <End Role="DataBodega" EntitySet="DataBodega" />
+      <End Role="InOut" EntitySet="InOut" />
+    </AssociationSet>
+    <AssociationSet Name="fk_usuario" Association="Self.fk_usuario">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="DataBodega" EntitySet="DataBodega" />
+    </AssociationSet>
+    <AssociationSet Name="fk_codigoFactura" Association="Self.fk_codigoFactura">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="DetalleFactura" EntitySet="DetalleFactura" />
+    </AssociationSet>
+    <AssociationSet Name="fk_codigoInventarioDetalleFactura" Association="Self.fk_codigoInventarioDetalleFactura">
+      <End Role="Inventario" EntitySet="Inventario" />
+      <End Role="DetalleFactura" EntitySet="DetalleFactura" />
+    </AssociationSet>
+    <AssociationSet Name="fk_codigoProductoInOut" Association="Self.fk_codigoProductoInOut">
+      <End Role="Inventario" EntitySet="Inventario" />
+      <End Role="DetalleInOut" EntitySet="DetalleInOut" />
+    </AssociationSet>
+    <AssociationSet Name="fk_coidgoInOut" Association="Self.fk_coidgoInOut">
+      <End Role="DetalleInOutP" EntitySet="DetalleInOutP" />
+      <End Role="DetalleInOut" EntitySet="DetalleInOut" />
+    </AssociationSet>
+    <AssociationSet Name="fk_codigoProductoInOutP" Association="Self.fk_codigoProductoInOutP">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="DetalleInOutP" EntitySet="DetalleInOutP" />
+    </AssociationSet>
+    <AssociationSet Name="fk_coidgoInOutP" Association="Self.fk_coidgoInOutP">
+      <End Role="InOut" EntitySet="InOut" />
+      <End Role="DetalleInOutP" EntitySet="DetalleInOutP" />
+    </AssociationSet>
+    <AssociationSet Name="fk_idu" Association="Self.fk_idu">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="EmployeeBodega" EntitySet="EmployeeBodega" />
+    </AssociationSet>
+    <AssociationSet Name="fk_estadoFactura" Association="Self.fk_estadoFactura">
+      <End Role="estadoFacturas" EntitySet="estadoFacturas" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="fk_estadoProducto" Association="Self.fk_estadoProducto">
+      <End Role="estadoProductos" EntitySet="estadoProductos" />
+      <End Role="Inventario" EntitySet="Inventario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_vendedor" Association="Self.fk_vendedor">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tipoInOut" Association="Self.fk_tipoInOut">
+      <End Role="tipoInOut" EntitySet="tipoInOut" />
+      <End Role="InOut" EntitySet="InOut" />
+    </AssociationSet>
+    <AssociationSet Name="fk_codigoProducto" Association="Self.fk_codigoProducto">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Inventario" EntitySet="Inventario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_superior" Association="Self.fk_superior">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Usuarios1" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <FunctionImport Name="fnTableColumnInfo" IsComposable="true" ReturnType="Collection(ProyectoFinalTJModel.fnTableColumnInfo_Result)">
+      <Parameter Name="sTableName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetEmpList" IsComposable="true" ReturnType="Collection(ProyectoFinalTJModel.GetEmpList_Result)">
+      <Parameter Name="superior" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetIdRol" IsComposable="true" ReturnType="Collection(ProyectoFinalTJModel.GetIdRol_Result)">
+      <Parameter Name="Rol" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetIdUser" IsComposable="true" ReturnType="Collection(ProyectoFinalTJModel.GetIdUser_Result)">
+      <Parameter Name="Userid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetRol" IsComposable="true" ReturnType="Collection(ProyectoFinalTJModel.GetRol_Result)">
+      <Parameter Name="Userid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ManagerBodegaUser" IsComposable="true" ReturnType="Collection(ProyectoFinalTJModel.ManagerBodegaUser_Result)" />
+    <FunctionImport Name="addRoleUser">
+      <Parameter Name="Userid" Mode="In" Type="String" />
+      <Parameter Name="Roleid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Delete_Cliente">
+      <Parameter Name="nit" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_Cliente">
+      <Parameter Name="nit" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="direccion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarBodega">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="dir" Mode="In" Type="String" />
+      <Parameter Name="admin" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarClientes">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="apellido" Mode="In" Type="String" />
+      <Parameter Name="nit" Mode="In" Type="String" />
+      <Parameter Name="dpi" Mode="In" Type="String" />
+      <Parameter Name="edad" Mode="In" Type="Int32" />
+      <Parameter Name="numeroTelefono" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="sexo" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarDetalleFactura">
+      <Parameter Name="codigoFactura" Mode="In" Type="Int32" />
+      <Parameter Name="codigoInventario" Mode="In" Type="Int32" />
+      <Parameter Name="precio" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarDetalleInOut">
+      <Parameter Name="coidgoInOut" Mode="In" Type="Int32" />
+      <Parameter Name="codigoProducto" Mode="In" Type="Int32" />
+      <Parameter Name="cantidad" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarDetalleInOutP">
+      <Parameter Name="coidgoInOut" Mode="In" Type="Int32" />
+      <Parameter Name="codigoProducto" Mode="In" Type="Int32" />
+      <Parameter Name="cantidad" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarestadoFacturas">
+      <Parameter Name="nombreEstado" Mode="In" Type="String" />
+      <Parameter Name="descripcionEstado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarFactura">
+      <Parameter Name="numeroSerie" Mode="In" Type="String" />
+      <Parameter Name="numeroFactura" Mode="In" Type="String" />
+      <Parameter Name="nitFactura" Mode="In" Type="String" />
+      <Parameter Name="nombreFactura" Mode="In" Type="String" />
+      <Parameter Name="direccionFacutra" Mode="In" Type="String" />
+      <Parameter Name="fechaFactura" Mode="In" Type="DateTime" />
+      <Parameter Name="estadoFactura" Mode="In" Type="Int32" />
+      <Parameter Name="totalFactura" Mode="In" Type="Decimal" />
+      <Parameter Name="cliente" Mode="In" Type="Int32" />
+      <Parameter Name="vendedor" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarInOut">
+      <Parameter Name="descripcion" Mode="In" Type="String" />
+      <Parameter Name="fechaInOut" Mode="In" Type="DateTime" />
+      <Parameter Name="tipoInOut" Mode="In" Type="Int32" />
+      <Parameter Name="cantidadInOut" Mode="In" Type="Int32" />
+      <Parameter Name="ubicacionInOut" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarInventario">
+      <Parameter Name="codigoProducto" Mode="In" Type="Int32" />
+      <Parameter Name="estadoProducto" Mode="In" Type="Int32" />
+      <Parameter Name="ubicacionProducto" Mode="In" Type="Int32" />
+      <Parameter Name="precioVenta" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarProductos">
+      <Parameter Name="nombreProducto" Mode="In" Type="String" />
+      <Parameter Name="descripcionProducto" Mode="In" Type="String" />
+      <Parameter Name="costoProducto" Mode="In" Type="Decimal" />
+      <Parameter Name="existenciaTotal" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarRoles">
+      <Parameter Name="nombreRol" Mode="In" Type="String" />
+      <Parameter Name="descripcion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarUsuarios">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="apellido" Mode="In" Type="String" />
+      <Parameter Name="user" Mode="In" Type="String" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+      <Parameter Name="edad" Mode="In" Type="Int32" />
+      <Parameter Name="numeroTelefono" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="rol" Mode="In" Type="Int32" />
+      <Parameter Name="superior" Mode="In" Type="Int32" />
+      <Parameter Name="sexo" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="inveVendido">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="pr__SYS_MakeDeleteRecordProc">
+      <Parameter Name="sTableName" Mode="In" Type="String" />
+      <Parameter Name="bExecute" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="pr__SYS_MakeInsertRecordProc">
+      <Parameter Name="sTableName" Mode="In" Type="String" />
+      <Parameter Name="bExecute" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="pr__SYS_MakeSelectRecordProc">
+      <Parameter Name="sTableName" Mode="In" Type="String" />
+      <Parameter Name="bExecute" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="pr__SYS_MakeUpdateRecordProc">
+      <Parameter Name="sTableName" Mode="In" Type="String" />
+      <Parameter Name="bExecute" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="prApp_DetalleInOutP_Delete">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ProyectoFinalTJModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ProyectoFinalTJModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

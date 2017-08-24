@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Proyecto1TJ.Models.Inventario>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageEmployee.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.precioVenta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataBodega.nombreBodega)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estadoProductos.nombreEstado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Productos.nombreProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Productos.descripcionProducto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.precioVenta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataBodega.nombreBodega)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estadoProductos.nombreEstado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Productos.nombreProducto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Productos.descripcionProducto)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

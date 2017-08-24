@@ -1,0 +1,83 @@
+﻿@model Proyecto1TJ.Models.Clientes
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPageEmployee.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Clientes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombrePersona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombrePersona)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidoPersona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidoPersona)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dpi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dpi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numeroTelefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeroTelefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sexo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
