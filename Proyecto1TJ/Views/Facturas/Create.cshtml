@@ -43,13 +43,6 @@
                 @Html.ValidationMessageFor(model => model.factEncab.direccionFacutra, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" /> |
-@Html.ActionLink("Agregar Producto", "AddProduct", new { }, new { @class = "btn btn-primary" }) | @Html.ActionLink("Cancelar", "CancelarFact", new { }, new { @class = "btn btn-warning" })
-                
-            </div>
-        </div>
     </div>
     <div class="col-sm-4">
         @Html.LabelFor(model => model.factEncab.numeroFactura, htmlAttributes: new { @class = "control-label" })
@@ -76,6 +69,14 @@
         </div>
     </div>
 </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" /> |
+                @Html.ActionLink("Agregar Producto", "AddProduct", new { }, new { @class = "btn btn-primary" }) | @Html.ActionLink("Cancelar", "CancelarFact", new { }, new { @class = "btn btn-warning" })
+
+            </div>
+        </div>
 <hr />
         <table class="table">
             <tr>
